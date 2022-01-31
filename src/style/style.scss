@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container-main {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+        color: rgb(14, 138, 101);
+    }
+
+    .winner {
+        color: rgb(14, 138, 101);
+        font-size: 42px;
+        margin-top: 20px;
+    }
+    .reset-game {
+        font-size: 22px;
+        font-weight: 500;
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        margin-top: 20px;
+        transition: all 0.3s ease-in-out;
+        background: rgb(14, 138, 101);
+        width: 300px;
+        padding: 5px;
+        text-align: center;
+        border-radius: 4px;
+        &:hover {
+            background: rgb(4, 82, 58);
+        }
+    }
+    .board {
+        position: relative;
+        .actions {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 105%;
+            font-size: 14px;
+            cursor: pointer;
+            color: rgb(14, 138, 101);
+        }
+    }
+
+    .sparklegif{
+        position: absolute;
+        width: 350px;
+        top: 22%;
+    }
+}
+
+table td {
+    border: 2px solid rgb(14, 138, 101);
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 44px;
+    font-weight: 600;
+    color: rgb(14, 138, 101);
+    cursor: pointer;
+}
