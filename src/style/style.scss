@@ -22,6 +22,10 @@ body {
         color: rgb(14, 138, 101);
         font-size: 42px;
         margin-top: 20px;
+        @media screen and (max-width: 480px) {
+            font-size: 22px;
+            padding: 0px 10px;
+        }
     }
     .reset-game {
         font-size: 22px;
@@ -38,6 +42,15 @@ body {
         &:hover {
             background: rgb(4, 82, 58);
         }
+        @media screen and (max-width: 480px) {
+            margin-top: 10px;
+        }
+    }
+    .donate{
+        font-size: 12px;
+        margin-top: 5px;
+        text-align: center;
+        color: rgb(38, 38, 38);
     }
     .board {
         position: relative;
@@ -50,10 +63,16 @@ body {
             font-size: 14px;
             cursor: pointer;
             color: rgb(14, 138, 101);
+            @media screen and (max-width: 480px) {
+                display: block;
+                position: relative;
+                left: 0;
+                margin-top: 5px;
+            }
         }
     }
 
-    .sparklegif{
+    .sparklegif {
         position: absolute;
         width: 350px;
         top: 22%;
@@ -69,4 +88,16 @@ table td {
     font-weight: 600;
     color: rgb(14, 138, 101);
     cursor: pointer;
+}
+
+.author{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: rgb(80, 80, 80);
+    @media screen and (max-width: 480px) {
+        bottom: 20px;
+        right: 20px;
+    }
 }

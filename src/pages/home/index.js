@@ -4,7 +4,7 @@ import clickSound from '../../audios/click.mp3';
 import winnerSound from '../../audios/winner.mp3';
 import drawSound from '../../audios/draw.mp3';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMicrophone, faMicrophoneSlash } from '@fortawesome/free-solid-svg-icons';
+import { faMicrophone, faMicrophoneSlash, faCode } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
     const [turn, setTurn] = useState('O');
@@ -119,6 +119,7 @@ const Home = () => {
                 <div className="reset-game" onClick={() => resetGame()}>
                     Play Again
                 </div>
+                <div className="donate">Please <a className='underline' target='_blank' href="https://pmny.in/ErLuIvxCJJkS">donate</a> if you like &hearts;</div>
                 {winner ? (
                     <>
                         <div className="winner">{winner}</div>
@@ -127,6 +128,13 @@ const Home = () => {
                 ) : (
                     <></>
                 )}
+            </div>
+            <div className="author">
+                <FontAwesomeIcon icon={faCode} style={{ fontSize: '12px', marginRight: '5px', color: 'rgb(14, 138, 101)' }} />
+                Developed by{' '}
+                <a target='_blank' href="https://www.linkedin.com/in/aman-raj-46770595/">
+                    <span style={{ fontWeight: 600 }}>Aman</span>
+                </a>
             </div>
         </>
     );
