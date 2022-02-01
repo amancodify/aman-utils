@@ -10,6 +10,7 @@ const Home = () => {
     const [turn, setTurn] = useState('O');
     const [cells, setCells] = useState(Array(9).fill(''));
     const [winner, setWinner] = useState();
+    const [winnerCells, setWinnerCells] = useState({ cells: [], direction: '' });
     const [freez, setFreez] = useState(false);
     const [mute, setMute] = useState(false);
     const [play] = useSound(clickSound);
@@ -47,6 +48,7 @@ const Home = () => {
                     //Do Nothing
                 } else if (squares[pattern[0]] === squares[pattern[1]] && squares[pattern[1]] === squares[pattern[2]]) {
                     let winnerData = `Game Over: '${squares[pattern[0]]}' is the winner!`;
+                    setWinnerCells({ cells: pattern, direction: combo });
                     setWinner(winnerData);
                     setFreez(true);
                     if (!mute) {
@@ -83,7 +85,26 @@ const Home = () => {
     };
 
     const Cell = ({ num }) => {
-        return <td onClick={() => onCellClick(num)}>{cells[num]}</td>;
+        let cssClass = '';
+        if (winner && winner !== 'Game Draw!') {
+            if (winnerCells.direction === 'diagnol') {
+                if (winnerCells.cells[0] === 2) {
+                    cssClass = 'rl-diagnol';
+                } else {
+                    cssClass = 'lr-diagnol';
+                }
+            } else if (winnerCells.direction === 'down') {
+                cssClass = 'vertical-line';
+            } else if (winnerCells.direction === 'across') {
+                cssClass = 'across-line';
+            }
+        }
+        return (
+            <td onClick={() => onCellClick(num)}>
+                {cells[num]}
+                {winnerCells.cells.includes(num) ? <div className={`${cssClass}`}></div> : <></>}
+            </td>
+        );
     };
 
     return (
@@ -119,7 +140,13 @@ const Home = () => {
                 <div className="reset-game" onClick={() => resetGame()}>
                     Play Again
                 </div>
-                <div className="donate">Please <a className='underline' target='_blank' href="https://pmny.in/ErLuIvxCJJkS">donate</a> if you like &hearts;</div>
+                <div className="donate">
+                    Please{' '}
+                    <a className="underline" target="_blank" href="https://pmny.in/ErLuIvxCJJkS">
+                        donate
+                    </a>{' '}
+                    if you like &hearts;
+                </div>
                 {winner ? (
                     <>
                         <div className="winner">{winner}</div>
@@ -132,7 +159,7 @@ const Home = () => {
             <div className="author">
                 <FontAwesomeIcon icon={faCode} style={{ fontSize: '12px', marginRight: '5px', color: 'rgb(14, 138, 101)' }} />
                 Developed by{' '}
-                <a target='_blank' href="https://www.linkedin.com/in/aman-raj-46770595/">
+                <a target="_blank" href="https://www.linkedin.com/in/aman-raj-46770595/">
                     <span style={{ fontWeight: 600 }}>Aman</span>
                 </a>
             </div>

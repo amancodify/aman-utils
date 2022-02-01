@@ -46,7 +46,7 @@ body {
             margin-top: 10px;
         }
     }
-    .donate{
+    .donate {
         font-size: 12px;
         margin-top: 5px;
         text-align: center;
@@ -88,9 +88,11 @@ table td {
     font-weight: 600;
     color: rgb(14, 138, 101);
     cursor: pointer;
+    position: relative;
+    padding: 0;
 }
 
-.author{
+.author {
     position: fixed;
     bottom: 10px;
     right: 10px;
@@ -100,4 +102,41 @@ table td {
         bottom: 20px;
         right: 20px;
     }
+}
+
+.lr-diagnol {
+    width: 139px;
+    position: absolute;
+    top: 47px;
+    height: 4px;
+    left: -21px;
+    background-color: rgb(14, 138, 101);
+    transform: rotateZ(45deg);
+}
+
+.rl-diagnol {
+    width: 139px;
+    position: absolute;
+    top: 47px;
+    height: 4px;
+    left: -21px;
+    background-color: rgb(14, 138, 101);
+    transform: rotateZ(-45deg);
+}
+
+.vertical-line {
+    width: 100px;
+    position: absolute;
+    top: 46px;
+    height: 4px;
+    background-color: rgb(14, 138, 101);
+    transform: rotateZ(90deg);
+}
+
+.across-line {
+    width: 100px;
+    position: absolute;
+    top: 50px;
+    height: 4px;
+    background-color: rgb(14, 138, 101);
 }
